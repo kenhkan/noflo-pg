@@ -1,0 +1,7 @@
+# Build an SQL statement
+
+'type:[a-z]+' -> REGEXP Output(RemoveGroup)
+
+Sql(Forward) OUT -> SQL Build(BuildSql)
+'^([^:]+)$=&$1' -> REGEXP MapGroup(MapGroup)
+Input(Merge) OUT -> IN CleanForSql(SqlSafe) OUT -> IN MapGroup() OUT -> IN Build() OUT -> IN Output()

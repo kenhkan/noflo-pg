@@ -1,0 +1,4 @@
+# Execute some SQL code
+
+Input(Postgres) OUT -> IN CombineRecords(CombineRecords) OUT -> IN Split(SplitArray) OUT -> IN Parse(TryParseJson) OUT -> IN Output(Forward)
+Input() EMPTY -> IN Empty(Forward)

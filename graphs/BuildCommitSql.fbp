@@ -1,0 +1,10 @@
+# Build AND execute SQL code
+
+'graphs/Sql.fbp' -> GRAPH Sql(Graph)
+'graphs/Database.fbp' -> GRAPH Database(Graph)
+
+Sql(Forward) OUT -> IN Sql.Sql()
+Input(Merge) OUT -> IN Sql.Input()
+Sql.Output() OUT -> IN Database.Input()
+Database.Output() OUT -> IN Output(Forward)
+Database.Empty() OUT -> IN Empty(Forward)

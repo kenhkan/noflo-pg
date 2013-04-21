@@ -1,0 +1,53 @@
+{ "name": "noflo-postgres"
+, "description": "PostgreSQL using node-postgres for NoFlo"
+, "keywords":
+  [ "noflo"
+  , "database"
+  , "postgresql"
+  , "postgres"
+  , "pgsql"
+  , "pg"
+  , "sql"
+  , "relational"
+  ]
+, "author": "Kenneth Kan <kenhkan@gmail.com>"
+, "version": "0.0.1"
+, "licenses":
+  [ { "type": "MIT"
+    , "url": "http://opensource.org/licenses/MIT"
+    }
+  ]
+, "engines":
+  { "node": ">=0.6.0"
+  }
+, "repository":
+  { "type": "git"
+  , "url": "git://github.com/kenhkan/noflo-postgres"
+  }
+, "dependencies":
+  { "noflo": "0.3.x"
+  , "underscore": "1.4.x"
+  , "underscore.string": "2.3.x"
+  }
+, "devDependencies":
+  { "coffeelint": "*"
+  , "coffee-script": "1.6.x"
+  , "noflo-test": "0.0.x"
+  }
+, "noflo":
+  { "components":
+    { "BuildSql": "./components/BuildSql.coffee"
+    , "SqlSafe": "./components/SqlSafe.coffee"
+    , "Postgres": "./components/Postgres.coffee"
+    }
+  , "graphs":
+    { "BuildCommitSql": "./graphs/BuildCommitSql.coffee"
+    , "Database": "./graphs/Database.coffee"
+    , "Sql": "./graphs/Sql.coffee"
+    }
+  }
+, "scripts":
+  { "pretest": "./node_modules/.bin/coffeelint -r components"
+  , "test": "./node_modules/.bin/noflo-test --spec test/components/*.coffee"
+  }
+}
