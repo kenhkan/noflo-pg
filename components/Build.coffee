@@ -72,13 +72,13 @@ class Build extends noflo.Component
       else if part.length >= 1
         segment = "#{part[0]}"
 
-      regex = "([^\\\\])#{placeholder}"
-      statement = statement.replace(new RegExp(regex, "g"), "$1#{segment}")
+      regex = new RegExp("([^\\\\])#{placeholder}", "g")
+      statement = statement.replace(regex, "$1#{segment}")
 
     # Deal with defaults
     for placeholder, def of @defaults
-      regex = "([^\\\\])#{placeholder}"
-      statement = statement.replace(new RegExp(regex, "g"), "$1#{def}")
+      regex = new RegExp("([^\\\\])#{placeholder}", "g")
+      statement = statement.replace(regex, "$1#{def}")
 
     # Send if statement is fulfilled
     unless statement.match(/[^\\\\]&/)?
