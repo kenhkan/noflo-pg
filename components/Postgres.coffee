@@ -38,7 +38,7 @@ class Postgres extends noflo.Component
     @inPorts.in.on "disconnect", =>
       groups = @groups
       query = _.flatten(@sqls).join(";\n")
-      result = client.query(query)
+      result = @client.query(query)
 
       # Send row forward
       result.on "row", (row, result) =>
