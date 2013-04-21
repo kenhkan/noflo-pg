@@ -2,6 +2,6 @@ EXPORT=SANITIZE.IN:IN
 EXPORT=BUILD.OUT:OUT
 EXPORT=BUILD.SQL:TEMPLATE
 
-'type:[a-z]+' -> REGEXP Output(RemoveGroup)
-'^([^:]+)$=&$1' -> REGEXP MapGroup(MapGroup)
+'type:[a-z]+' -> REGEXP Output(noflo-groups/RemoveGroup)
+'^([^:]+)$=&$1' -> REGEXP MapGroup(noflo-groups/MapGroup)
 Sanitize(Sanitize) OUT -> IN MapGroup() OUT -> IN Build(Build)

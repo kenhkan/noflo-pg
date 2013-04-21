@@ -28,6 +28,7 @@
   { "noflo": "0.3.x"
   , "underscore": "1.4.x"
   , "underscore.string": "2.3.x"
+  , "noflo-groups": "0.0.x"
   }
 , "devDependencies":
   { "coffeelint": "*"
