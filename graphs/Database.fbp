@@ -1,4 +1,5 @@
-# Execute some SQL code
+EXPORT=POSTGRES.IN:IN
+EXPORT=PARSE.OUT:OUT
+EXPORT=POSTGRES.EMPTY:EMPTY
 
-Input(Postgres) OUT -> IN CombineRecords(CombineRecords) OUT -> IN Split(SplitArray) OUT -> IN Parse(TryParseJson) OUT -> IN Output(Forward)
-Input() EMPTY -> IN Empty(Forward)
+Postgres(Postgres) OUT -> IN CombineRecords(CombineRecords) OUT -> IN Split(SplitArray) OUT -> IN Parse(TryParseJson)
