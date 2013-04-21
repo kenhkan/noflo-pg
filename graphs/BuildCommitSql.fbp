@@ -1,9 +1,0 @@
-EXPORT=SQL.INPUT:IN
-EXPORT=DATABASE.OUTPUT:OUT
-EXPORT=DATABASE.EMPTY:EMPTY
-EXPORT=SQL.TEMPLATE:TEMPLATE
-
-'graphs/Sql.fbp' -> GRAPH Sql(Graph)
-'graphs/Database.fbp' -> GRAPH Database(Graph)
-
-Sql.Output() OUT -> IN Database.Input()

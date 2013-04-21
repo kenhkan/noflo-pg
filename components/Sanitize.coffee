@@ -1,7 +1,7 @@
 noflo = require("noflo")
 _ = require("underscore")
 
-class SqlSafe extends noflo.Component
+class Sanitize extends noflo.Component
 
   description: "Makes sure the provided string pairs safe for SQL injection"
 
@@ -38,4 +38,4 @@ class SqlSafe extends noflo.Component
     @inPorts.in.on "disconnect", =>
       @outPorts.out.disconnect()
 
-exports.getComponent = -> new SqlSafe
+exports.getComponent = -> new Sanitize

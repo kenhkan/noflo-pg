@@ -1,7 +1,7 @@
-EXPORT=CLEANFORSQL.IN:IN
+EXPORT=SANITIZE.IN:IN
 EXPORT=BUILD.OUT:OUT
 EXPORT=BUILD.SQL:TEMPLATE
 
 'type:[a-z]+' -> REGEXP Output(RemoveGroup)
 '^([^:]+)$=&$1' -> REGEXP MapGroup(MapGroup)
-CleanForSql(SqlSafe) OUT -> IN MapGroup() OUT -> IN Build(BuildSql)
+Sanitize(Sanitize) OUT -> IN MapGroup() OUT -> IN Build(Build)

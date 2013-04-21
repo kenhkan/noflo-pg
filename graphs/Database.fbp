@@ -1,5 +1,8 @@
-EXPORT=POSTGRES.IN:IN
-EXPORT=PARSE.OUT:OUT
+EXPORT=SQL.INPUT:IN
+EXPORT=POSTGRES.OUTPUT:OUT
 EXPORT=POSTGRES.EMPTY:EMPTY
+EXPORT=SQL.TEMPLATE:TEMPLATE
 
-Postgres(Postgres) OUT -> IN CombineRecords(CombineRecords) OUT -> IN Split(SplitArray) OUT -> IN Parse(TryParseJson)
+'graphs/Sql.fbp' -> GRAPH Sql(Graph)
+
+Sql.Output() OUT -> IN Postgres(Postgres)

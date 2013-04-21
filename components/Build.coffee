@@ -2,7 +2,7 @@ noflo = require("noflo")
 _ = require("underscore")
 _s = require("underscore.string")
 
-class BuildSql extends noflo.Component
+class Build extends noflo.Component
 
   description: _s.clean "build an SQL statement using a template, which
   will not be constructed until all placeholders are filled"
@@ -102,4 +102,4 @@ class BuildSql extends noflo.Component
       @parts = {}
       @groups = []
 
-exports.getComponent = -> new BuildSql
+exports.getComponent = -> new Build

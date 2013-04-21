@@ -36,14 +36,13 @@
   }
 , "noflo":
   { "components":
-    { "BuildSql": "./components/BuildSql.coffee"
-    , "SqlSafe": "./components/SqlSafe.coffee"
-    , "Postgres": "./components/Postgres.coffee"
+    { "Postgres": "./components/Postgres.coffee"
+    , "Build": "./components/Build.coffee"
+    , "Sanitize": "./components/Sanitize.coffee"
     }
   , "graphs":
-    { "BuildCommitSql": "./graphs/BuildCommitSql.coffee"
+    { "Sql": "./graphs/Sql.coffee"
     , "Database": "./graphs/Database.coffee"
-    , "Sql": "./graphs/Sql.coffee"
     }
   }
 , "scripts":

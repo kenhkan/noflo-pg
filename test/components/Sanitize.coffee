@@ -1,6 +1,6 @@
 test = require "noflo-test"
 
-test.component("postgres/SqlSafe").
+test.component("postgres/Sanitize").
   discuss("escape unquoted content").
     send.data("in", "812387").
     discuss("into quoted content").
