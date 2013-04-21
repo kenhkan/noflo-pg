@@ -14,7 +14,7 @@
 , "version": "0.0.2"
 , "licenses":
   [ { "type": "MIT"
-    , "url": "http://opensource.org/licenses/MIT"
+    , "url": "https://github.com/kenhkan/noflo-postgres/blob/master/LICENSE.md"
     }
   ]
 , "engines":
