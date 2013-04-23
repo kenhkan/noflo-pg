@@ -11,7 +11,7 @@
   , "relational"
   ]
 , "author": "Kenneth Kan <kenhkan@gmail.com>"
-, "version": "0.0.3"
+, "version": "0.0.4"
 , "licenses":
   [ { "type": "MIT"
     , "url": "https://github.com/kenhkan/noflo-postgres/blob/master/LICENSE.md"

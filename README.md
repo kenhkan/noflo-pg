@@ -3,3 +3,6 @@ PostgreSQL using node-postgres for NoFlo [![Build Status](https://secure.travis-
 
 This is a simple wrapper around [brianc](https://github.com/brianc/)'s
 [node-postgres](https://github.com/brianc/node-postgres).
+
+Feel free to contribute new components and graphs! I'll try to
+incorporate as soon as time allows.
