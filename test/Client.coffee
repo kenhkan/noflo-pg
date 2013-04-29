@@ -7,14 +7,13 @@ expected = [
   { name: "Jenkin", age: 24 }
 ]
 
-# TODO: some error with the database
-#
-# test.component("postgres/Postgres").
+# TODO: some error with the database when testing
+# test.component("postgres/Client").
 #   discuss("set up server").
 #     send.data("server", "tcp://localhost:5432/postgres").
 #   discuss("send in the SQL statements").
 #     send.connect("in").
-#       send.data("in", "CREATE TABLE people (name text, age integer);").
+#       send.data("in", "CREATE TEMP TABLE people (name text, age integer);").
 #     send.disconnect("in").
 #     send.connect("in").
 #       send.data("in", "INSERT INTO people VALUES ('Ken', 24), ('Jen', 24);").
@@ -23,11 +22,11 @@ expected = [
 #     send.connect("in").
 #       send.beginGroup("in", "a").
 #         send.beginGroup("in", "b").
-#           send.data("in", "SELECT * FROM people where age = 24").
+#           send.data("in", "SELECT * FROM people where age = 24;").
 #         send.endGroup("in").
 #       send.endGroup("in").
 #       send.beginGroup("in", "c").
-#         send.data("in", "SELECT * FROM people where age = 24").
+#         send.data("in", "SELECT * FROM people where age = 24;").
 #       send.endGroup("in").
 #     send.disconnect("in").
 #   discuss("get back the result").

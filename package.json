@@ -37,13 +37,13 @@
   }
 , "noflo":
   { "components":
-    { "Postgres": "./components/Postgres.coffee"
+    { "Client": "./components/Client.coffee"
     , "Build": "./components/Build.coffee"
     , "Sanitize": "./components/Sanitize.coffee"
     }
   , "graphs":
     { "Sql": "./graphs/Sql.coffee"
-    , "Database": "./graphs/Database.coffee"
+    , "Postgres": "./graphs/Postgres.coffee"
     }
   }
 , "scripts":

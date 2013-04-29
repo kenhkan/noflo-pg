@@ -2,7 +2,7 @@ _ = require("underscore")
 pg = require("pg")
 noflo = require("noflo")
 
-class Postgres extends noflo.Component
+class Client extends noflo.Component
 
   description: "An interface to the backend PostgreSQL database"
 
@@ -22,8 +22,8 @@ class Postgres extends noflo.Component
     process.on("SIGTERM", endServer)
     process.on("SIGHUP", endServer)
 
-    @inPorts.server.on "data", (data) =>
-      @startServer(data)
+    @inPorts.server.on "data", (url) =>
+      @startServer url
 
     @inPorts.in.on "connect", =>
       @groups = []
@@ -58,14 +58,9 @@ class Postgres extends noflo.Component
           @sendResult(@outPorts.empty, groups, rows)
 
   sendResult: (port, groups, result) ->
-    for group in groups
-      port.beginGroup(group)
-
+    port.beginGroup(group) for group in groups
     port.send(result)
-
-    for group in groups
-      port.endGroup(group)
-
+    port.endGroup(group) for group in groups
     port.disconnect()
 
   startServer: (url) ->
@@ -76,4 +71,4 @@ class Postgres extends noflo.Component
   endServer: ->
     @client?.end()
 
-exports.getComponent = -> new Postgres
+exports.getComponent = -> new Client
