@@ -28,3 +28,7 @@ These values are sanitized for injection attacks.
 
 Whether PostgreSQL returns any row or not, it sends to the 'OUT' port.
 If there's an error, it sends it to the 'ERROR' port.
+
+Note that since this is an asynchronous operation, almost always should
+you group the input with a unique ID as the output would inherit the
+grouping for you to identify the output against the input.
