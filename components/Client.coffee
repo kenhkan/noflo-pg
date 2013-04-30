@@ -35,6 +35,9 @@ class Client extends noflo.Component
       @sqls.push(data)
 
     @inPorts.in.on "disconnect", =>
+      unless @client?
+        throw new Error "Server connection has not yet been established"
+
       groups = @groups
       query = _.flatten(@sqls).join(";\n")
       result = @client.query(query)

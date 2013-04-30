@@ -42,8 +42,8 @@
     , "Sanitize": "./components/Sanitize.coffee"
     }
   , "graphs":
-    { "Sql": "./graphs/Sql.coffee"
-    , "Postgres": "./graphs/Postgres.coffee"
+    { "Sql": "./graphs/Sql.fbp"
+    , "Postgres": "./graphs/Postgres.fbp"
     }
   }
 , "scripts":
