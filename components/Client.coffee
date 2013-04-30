@@ -13,7 +13,6 @@ class Client extends noflo.Component
     @outPorts =
       out: new noflo.Port()
       error: new noflo.Port()
-      empty: new noflo.Port()
 
     # Close connection on application exit, SIGINT, and SIGTERM
     endServer = _.bind(@endServer, this)
@@ -50,12 +49,7 @@ class Client extends noflo.Component
         @outPorts.error.disconnect()
 
       result.on "end", (result) =>
-        rows = result?.rows or []
-
-        if rows.length > 0
-          @sendResult(@outPorts.out, groups, rows)
-        else
-          @sendResult(@outPorts.empty, groups, rows)
+        @sendResult(@outPorts.out, groups, result?.rows or [])
 
   sendResult: (port, groups, result) ->
     port.beginGroup(group) for group in groups
