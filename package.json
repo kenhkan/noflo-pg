@@ -1,4 +1,4 @@
-{ "name": "noflo-postgres"
+{ "name": "noflo-pg"
 , "description": "PostgreSQL using node-postgres for NoFlo"
 , "keywords":
   [ "noflo"
@@ -14,7 +14,7 @@
 , "version": "0.0.4"
 , "licenses":
   [ { "type": "MIT"
-    , "url": "https://github.com/kenhkan/noflo-postgres/blob/master/LICENSE.md"
+    , "url": "https://github.com/kenhkan/noflo-pg/blob/master/LICENSE.md"
     }
   ]
 , "engines":
@@ -22,7 +22,7 @@
   }
 , "repository":
   { "type": "git"
-  , "url": "git://github.com/kenhkan/noflo-postgres"
+  , "url": "git://github.com/kenhkan/noflo-pg"
   }
 , "dependencies":
   { "noflo": "0.3.x"

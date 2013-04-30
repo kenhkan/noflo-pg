@@ -1,4 +1,4 @@
-PostgreSQL using node-postgres for NoFlo [![Build Status](https://secure.travis-ci.org/kenhkan/noflo-postgres.png?branch=master)](https://travis-ci.org/kenhkan/noflo-postgres)
+PostgreSQL using node-postgres for NoFlo [![Build Status](https://secure.travis-ci.org/kenhkan/noflo-pg.png?branch=master)](https://travis-ci.org/kenhkan/noflo-pg)
 ===============================
 
 This is a simple wrapper around [brianc](https://github.com/brianc/)'s
@@ -14,7 +14,7 @@ API
 Although some components may be of interest in some situations, most
 likely you want to use the 'Postgres' graph.
 
-    'tcp://localhost:5432/postgres' - SERVER Postgres(postgres/Postgres)
+    'tcp://localhost:5432/postgres' - SERVER Postgres(pg/Postgres)
     'SELECT * FROM &table' -> TEMPLATE Postgres()
     'table' -> GROUP Placeholder(Group)
     'users' -> IN Placeholder() OUT -> IN Postgres()
