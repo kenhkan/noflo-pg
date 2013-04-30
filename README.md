@@ -28,11 +28,3 @@ These values are sanitized for injection attacks.
 
 Whether PostgreSQL returns any row or not, it sends to the 'OUT' port.
 If there's an error, it sends it to the 'ERROR' port.
-
-
-Object-Relational Mapping
-------------------------------
-
-There is a *very* primitive ORM helper available. It does not perform
-any active mapping. All it does is to accept an JavaScript object with
-keys as the columns and values as the values to write to the database.
