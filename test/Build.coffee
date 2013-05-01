@@ -1,6 +1,6 @@
 test = require "noflo-test"
 
-test.component("postgres/Build").
+test.component("pg/Build").
   discuss("send in an SQL template").
     send.data("sql", "SELECT &fields FROM &tables WHERE &constraints").
   discuss("set defaults").
