@@ -16,9 +16,9 @@ likely you want to use the 'Postgres' graph.
 
     'tcp://localhost:5432/postgres' - SERVER Postgres(pg/Postgres)
     'SELECT * FROM &table' -> TEMPLATE Postgres()
-    'id' -> GROUP Id(Group)
+    'id' -> TOKEN Postgres()
     'table' -> GROUP Placeholder(Group)
-    'users' -> IN Placeholder() OUT -> IN Id() OUT -> IN Postgres()
+    'users' -> IN Placeholder() OUT -> IN Postgres()
     Postgres() OUT -> IN PrintUsers(Output)
     Postgres() ERROR -> IN Error(Output)
 
