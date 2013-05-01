@@ -33,3 +33,6 @@ If there's an error, it sends it to the 'ERROR' port.
 Note that since this is an asynchronous operation, almost always should
 you group the input with a unique ID as the output would inherit the
 grouping for you to identify the output against the input.
+
+Feel free to create as many instances of `pg/Client`. All queries are
+pooled in a single connection.

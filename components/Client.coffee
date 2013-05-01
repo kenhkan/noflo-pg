@@ -2,6 +2,9 @@ _ = require("underscore")
 pg = require("pg")
 noflo = require("noflo")
 
+# Pool all queries through a single connection
+client = null
+
 class Client extends noflo.Component
 
   description: "An interface to the backend PostgreSQL database"
@@ -43,14 +46,14 @@ class Client extends noflo.Component
       token = @token
       query = _.flatten(@sqls).join(";\n")
 
-      unless @client?
+      unless client?
         throw new Error "Server connection has not yet been established"
       unless token?
         throw new Error "Missing token for return connection"
       unless query?
         throw new Error "Missing query to execute"
 
-      result = @client.query query
+      result = client.query query
 
       # Send row forward
       result.on "row", (row, result) =>
@@ -65,20 +68,17 @@ class Client extends noflo.Component
         @outPorts.error.disconnect()
 
       result.on "end", (result) =>
-        port = @outPorts.out
-        output = result?.rows or []
-
-        port.beginGroup token
-        port.send output
-        port.endGroup()
-        port.disconnect()
+        @outPorts.out.beginGroup token
+        @outPorts.out.send row for row in result?.rows or []
+        @outPorts.out.endGroup()
+        @outPorts.out.disconnect()
 
   startServer: (url) ->
     @endServer()
-    @client = new pg.Client(url)
-    @client.connect()
+    client = new pg.Client(url)
+    client.connect()
 
   endServer: ->
-    @client?.end()
+    client?.end()
 
 exports.getComponent = -> new Client
