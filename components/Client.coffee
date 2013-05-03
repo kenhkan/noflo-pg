@@ -78,6 +78,9 @@ class Client extends noflo.Component
     client[url].connect()
 
   endServer: (url) ->
-    client[url]?.end()
+    if url?
+      client[url]?.end()
+    else
+      client[url].end() for url in _.keys client
 
 exports.getComponent = -> new Client
