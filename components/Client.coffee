@@ -60,6 +60,7 @@ class Client extends noflo.Component
 
       # Send to error port
       result.on "error", (e) =>
+        e.query = query
         unless @outPorts.error.isAttached()
           throw new Error "No error port attached"
 
