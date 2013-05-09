@@ -8,7 +8,7 @@ Feel free to contribute new components and graphs! I'll try to
 incorporate as soon as time allows.
 
 
-API
+Usage
 ------------------------------
 
 Although some components may be of interest in some situations, most
@@ -30,9 +30,9 @@ These values are sanitized for injection attacks.
 Whether PostgreSQL returns any row or not, it sends to the 'OUT' port.
 If there's an error, it sends it to the 'ERROR' port.
 
-Note that since this is an asynchronous operation, almost always should
-you group the input with a unique ID as the output would inherit the
-grouping for you to identify the output against the input.
+Note that since this is an asynchronous operation, you must provide a
+token which would group the output for you to identify the output
+corresponding to your input.
 
 Feel free to create as many instances of `pg/Client`. All queries are
 pooled in a single connection.
