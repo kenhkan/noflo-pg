@@ -69,7 +69,10 @@ class Client extends noflo.Component
 
       result.on "end", (result) =>
         @outPorts.out.beginGroup token
-        @outPorts.out.send row for row in result?.rows or []
+        if _.isEmpty rows
+          @outPorts.out.send null
+        else
+          @outPorts.out.send row for row in rows
         @outPorts.out.endGroup()
         @outPorts.out.disconnect()
 
