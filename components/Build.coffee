@@ -67,7 +67,7 @@ class Build extends noflo.Component
 
       # Multiple
       if part.length >= 2
-        segment = "(#{part.join(",")})"
+        segment = "#{part.join(",")}"
       # Single
       else if part.length >= 1
         segment = "#{part[0]}"

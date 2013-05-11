@@ -11,13 +11,17 @@ class Sanitize extends noflo.Component
     @outPorts =
       out: new noflo.Port
 
-    @inPorts.in.on "begingroup", (group) =>
-      @outPorts.out.beginGroup group
+    @inPorts.in.on "begingroup", (@placeholder) =>
+      @outPorts.out.beginGroup @placeholder
 
     @inPorts.in.on "data", (data) =>
+      # Ignore if the *placeholder* starts with an ampersand
+      if @placeholder?.match? /^&/
+        data = data
+
       # Ignore if data starts with an ampersand (an escape), but remove the
       # ampersand of course
-      if data?.match?(/^&/)?
+      else if data?.match? /^&/
         data = data.slice 1
 
       else if data is ""
@@ -39,8 +43,9 @@ class Sanitize extends noflo.Component
 
       @outPorts.out.send data
 
-    @inPorts.in.on "endgroup", (group) =>
+    @inPorts.in.on "endgroup", =>
       @outPorts.out.endGroup()
+      @placeholder = null
 
     @inPorts.in.on "disconnect", =>
       @outPorts.out.disconnect()

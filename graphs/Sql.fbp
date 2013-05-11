@@ -3,5 +3,5 @@ EXPORT=BUILD.OUT:OUT
 EXPORT=BUILD.SQL:TEMPLATE
 
 # Prepend keys with ampersand for `Build`
-'^([^:]+)$=&$1' -> REGEXP MapGroup(MapGroup)
+'^([^&][^:]*)$=&$1' -> REGEXP MapGroup(MapGroup)
 Sanitize(pg/Sanitize) OUT -> IN MapGroup() OUT -> IN Build(pg/Build)
