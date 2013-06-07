@@ -3,7 +3,7 @@ pg = require("pg")
 noflo = require("noflo")
 
 # Pool all queries through a single connection for each database
-client = {}
+clients = {}
 
 class Client extends noflo.Component
 
@@ -42,17 +42,18 @@ class Client extends noflo.Component
       @sqls.push data
 
     @inPorts.in.on "disconnect", =>
+      client = clients[@url]
       token = @token
       query = _.flatten(@sqls).join(";\n")
 
-      unless client[@url]?
+      unless client?
         throw new Error "Server connection has not yet been established"
       unless token?
         throw new Error "Missing token for return connection"
       unless query?
         throw new Error "Missing query to execute"
 
-      result = client[@url].query query
+      result = client.query query
 
       # Send row forward
       result.on "row", (row, result) =>
@@ -60,14 +61,18 @@ class Client extends noflo.Component
 
       # Send to error port
       result.on "error", (e) =>
-        e.query = query
         unless @outPorts.error.isAttached()
           throw new Error "No error port attached"
 
+        e.query = query
         @outPorts.error.send e
         @outPorts.error.disconnect()
 
+        # Re-connect to avoid persisting errors
+        @startServer @url
+
       result.on "end", (result) =>
+        rows = result?.rows or []
         @outPorts.out.beginGroup token
         if _.isEmpty rows
           @outPorts.out.send null
@@ -78,13 +83,13 @@ class Client extends noflo.Component
 
   startServer: (url) ->
     @endServer url
-    client[url] = new pg.Client url
-    client[url].connect()
+    clients[url] = new pg.Client url
+    clients[url].connect()
 
   endServer: (url) ->
     if url?
-      client[url]?.end()
+      clients[url]?.end()
     else
-      client[url].end() for url in _.keys client
+      clients[url].end() for url in _.keys clients
 
 exports.getComponent = -> new Client
