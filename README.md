@@ -1,5 +1,4 @@
-PostgreSQL using node-postgres for NoFlo [![Build Status](https://secure.travis-ci.org/kenhkan/noflo-pg.png?branch=master)](https://travis-ci.org/kenhkan/noflo-pg)
-===============================
+# PostgreSQL using node-postgres for NoFlo <br/>[![Build Status](https://secure.travis-ci.org/kenhkan/noflo-pg.png?branch=master)](http://travis-ci.org/kenhkan/noflo-pg) [![Dependency Status](https://gemnasium.com/kenhkan/noflo-pg.png)](https://gemnasium.com/kenhkan/noflo-pg) [![NPM version](https://badge.fury.io/js/noflo-pg.png)](http://badge.fury.io/js/noflo-pg) [![Stories in Ready](https://badge.waffle.io/kenhkan/noflo-pg.png)](http://waffle.io/kenhkan/noflo-pg)
 
 This is a simple wrapper around [brianc](https://github.com/brianc/)'s
 [node-postgres](https://github.com/brianc/node-postgres).
@@ -8,8 +7,7 @@ Feel free to contribute new components and graphs! I'll try to
 incorporate as soon as time allows.
 
 
-Usage
-------------------------------
+## Usage
 
 Although some components may be of interest in some situations, most
 likely you want to use the 'Postgres' graph.
