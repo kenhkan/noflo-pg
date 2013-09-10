@@ -31,7 +31,9 @@
     "underscore": "1.4.x",
     "underscore.string": "2.3.x",
     "pg": "0.8.x",
-    "noflo-test": "0.0.6"
+    "noflo-test": "0.0.6",
+    "grunt": "~0.4.1",
+    "grunt-exec": "~0.4.2"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
@@ -59,5 +61,8 @@
       "Sql": "./graphs/Sql.fbp",
       "Postgres": "./graphs/Postgres.fbp"
     }
+  },
+  "scripts": {
+    "test": "grunt test"
   }
 }
