@@ -19,6 +19,10 @@ class Sanitize extends noflo.Component
       if @placeholder?.match? /^&/
         data = data
 
+      # Ignore if boolean
+      else if _.isBoolean data
+        data = "#{data}"
+
       # Ignore if data starts with an ampersand (an escape), but remove the
       # ampersand of course
       else if data?.match? /^&/
