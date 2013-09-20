@@ -28,6 +28,9 @@ class Sanitize extends noflo.Component
       else if data?.match? /^&/
         data = data.slice 1
 
+      else if not _.isNaN parseInt data
+        data = parseInt data
+
       else if data is ""
         data = "''"
 
@@ -38,9 +41,6 @@ class Sanitize extends noflo.Component
         # Remove duplicate quotes and for each remaining quote escape the quote
         # for SQL
         data = "'#{data.replace(/'+/g, "'").replace(/'/g, "''")}'"
-
-      else if _.isNumber(data)
-        data = @quote data
 
       else
         data = "''"
